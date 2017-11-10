@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contacts</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/slick.css" rel="stylesheet"> 
+        <link href="css/main.css" rel="stylesheet"> 
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/slick.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOaHvRqsa8UoVLT7izYqKBDtIki4jRyd0&amp;amp;amp;sensor=false"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <div class="contact">
+            <header>
+                <div class="wrap">
+                    <div class="phone left hidden">
+                        <div>
+                            <span>
+                                <a href="tel:+380637900642">
+                                    +3 8 (063) 790 06 42
+                                </a>
+                            </span>
+                        </div>
+                        <div><span>Vladimir Ryabinin</span></div>
+                    </div>
+                    <div class="mail left hidden">
+                        <span>
+                            <a href="mailto:Ryabinin_v_o@ukr.net">
+                                Ryabinin_v_o@ukr.net
+                            </a>
+                        </span>
+                    </div>
+                    <div class="address right hidden">
+                        <div><span>53A Zhovtneva street, Mala Vyska town</span></div>
+                        <div><span>Ukraine, Kirovograd Region, P.O.Box 26200</span></div>
+                    </div>
+                </div>
+            </header>
+            <section>
+                <div class="wrap">
+                    <div class="main-menu">
+                        <div class="logo left">
+                            <a href="/index.html"></a>
+                        </div>
+                        <div class="left menu">
+                            <a href="/index.html">HOME</a>
+                            <a href="/about.html">ABOUT</a>
+                            <a href="/lithium.html">LITHIUM</a>
+                            <a href="/index.html">CORPORATE</a>
+                            <a href="/contacts.html" class="active">CONTACT INFORMATION</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="our-contacts">
+            <div class="wrap">
+                <div class="left hidden">
+                    <div class="text-1">Our</div>
+                    <div class="text-2">Contacts</div>
+                    <div class="contact-item">
+                        <div class="phone">
+                            +3 8 (063) 790 06 42 <br />
+                            <b>Vladimir Ryabinin</b>
+                        </div>
+                        <div class="mail">
+                            Ryabinin_v_o@ukr.net
+                        </div>
+                        <div class="addr">
+                            53A Zhovtneva street <br />
+                            Mala Vyska town <br />
+							Kirovograd Region <br />
+                            Ukraine, P.O.Box 26200
+                        </div>
+                    </div>
+                </div>
+                <div class="maps">
+                    <div id="map" style="height: 681px;"></div>
+                </div>
+            </div>
+        </section>
+        <footer class="hidden">
+            <div class="wrap">
+                <div class="footer-menu">
+                    <a href="/index.html">HOME</a>
+                    <a href="/about.html">ABOUT</a>
+                    <a href="/lithium.html">LITHIUM</a>
+                    <a href="/index.html">CORPORATE</a>
+                    <a href="/contacts.html" class="active">CONTACT INFORMATION</a>
+                </div>
+                <div class="footer-contact hidden">
+                    <div class="phone-mail left">
+                        <div>
+                            <a href="tel:+380637900642">
+                                +3 8 (063) 790 06 42
+                            </a>
+                        </div>
+                        <div>
+                            <a href="mailto:Ryabinin_v_o@ukr.net">
+                                Ryabinin_v_o@ukr.net
+                            </a>
+                        </div>
+                    </div>
+                    <div class="logo left">
+                        <a href="/index.html"></a>
+                    </div>
+                    <div class="addres right">
+                        53A Zhovtneva street <br />
+                        Mala Vyska town, Kirovograd Region <br />
+                        Ukraine, P.O.Box 26200
+                    </div>
+                </div>
+                <div class="copy">
+                    <div>
+                        © 2017. Ukrlitiydobycha llc. All rights reserved 
+                    </div>
+                    <div>
+                        Copying is prohibited.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript">
+var locations = [
+    ["", 48.652889, 31.624088, "http://test.bandapixels.com/ulm/img/maps-marjer.png"],
+];
+var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: new google.maps.LatLng(48.652889, 31.624088),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+ 
+var infowindow = new google.maps.InfoWindow();
+var marker, i;
+ 
+for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        icon: {
+            url: locations[i][3],
+            scaledSize: new google.maps.Size(34, 38)
+        }
+    });
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+        }
+    })(marker, i));
+}
+</script>
+    </body>
+</html>
